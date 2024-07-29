@@ -52,7 +52,7 @@ def generate_qr_code(url):
     img = qr.make_image(fill='black', back_color='white')
     
     buffered = BytesIO()
-    img.save(buffered, format='PNG')
+    img.save(buffered)
     buffered.seek(0)
     
     qr_code_result = cloudinary.uploader.upload(buffered, public_id=f"{url}_qr_code")
